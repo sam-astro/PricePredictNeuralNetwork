@@ -8,5 +8,5 @@ To run, simply open <code>/Executable/</code>, then run <code>NeuralNetConsoleCS
 
 Someday I'll add a networking component to it, that way you won't need to send me the weights file. But in the meantime, goto <code>/Executable/dat/</code>. Then send me the file called <code>weightpersistence.dat</code>.
 
-## The current best weight is: <b>74.79%</b>
-Make sure to only send me the weights file if your weight is bigger than this one. I'll keep this up to date with each network evolution.
+## The current best fitness is: <b>74.79%</b>
+You only need to send me the weights file if your fitness is bigger than this one. I'll keep this up to date with each network evolution.
