@@ -242,7 +242,7 @@ public class NetManagerConvo
 		Console.ForegroundColor = ConsoleColor.Blue;
 		Console.Write("BLUE ");
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.Write("text isn't getting printed to screen. (that is when it is saving or loading data). Also, I'm too fucking lazy so when you are done training this, you need to either send me /dat/weightpersistence.dat OR send me the text within that file. No networking, yet :P\n");
+		Console.Write("text isn't getting printed to screen. (that is when it is saving or loading data). Also, I'm too lazy so when you are done training this, you need to either send me /dat/weightpersistence.dat OR send me the text within that file. No networking, yet :P\n");
 		Console.ResetColor();
 	}
 

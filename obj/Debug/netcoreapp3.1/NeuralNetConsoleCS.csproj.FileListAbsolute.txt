@@ -37,3 +37,16 @@ D:\Code\NeuralNetConsoleCSCopy\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.csproj
 D:\Code\NeuralNetConsoleCSCopy\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.dll
 D:\Code\NeuralNetConsoleCSCopy\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.pdb
 D:\Code\NeuralNetConsoleCSCopy\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.genruntimeconfig.cache
+D:\Code\PricePredictNeuralNetwork\bin\Debug\netcoreapp3.1\NeuralNetConsoleCS.exe
+D:\Code\PricePredictNeuralNetwork\bin\Debug\netcoreapp3.1\NeuralNetConsoleCS.deps.json
+D:\Code\PricePredictNeuralNetwork\bin\Debug\netcoreapp3.1\NeuralNetConsoleCS.runtimeconfig.json
+D:\Code\PricePredictNeuralNetwork\bin\Debug\netcoreapp3.1\NeuralNetConsoleCS.runtimeconfig.dev.json
+D:\Code\PricePredictNeuralNetwork\bin\Debug\netcoreapp3.1\NeuralNetConsoleCS.dll
+D:\Code\PricePredictNeuralNetwork\bin\Debug\netcoreapp3.1\NeuralNetConsoleCS.pdb
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.csproj.AssemblyReference.cache
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.AssemblyInfoInputs.cache
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.AssemblyInfo.cs
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.csproj.CoreCompileInputs.cache
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.dll
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.pdb
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.genruntimeconfig.cache
