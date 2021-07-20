@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\NeuralNetConsoleCSCopy\\NeuralNetConsoleCS.csproj": {}
+    "D:\\Code\\PricePredictNeuralNetwork\\NeuralNetConsoleCS.csproj": {}
   },
   "projects": {
-    "D:\\Code\\NeuralNetConsoleCSCopy\\NeuralNetConsoleCS.csproj": {
+    "D:\\Code\\PricePredictNeuralNetwork\\NeuralNetConsoleCS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\NeuralNetConsoleCSCopy\\NeuralNetConsoleCS.csproj",
+        "projectUniqueName": "D:\\Code\\PricePredictNeuralNetwork\\NeuralNetConsoleCS.csproj",
         "projectName": "NeuralNetConsoleCS",
-        "projectPath": "D:\\Code\\NeuralNetConsoleCSCopy\\NeuralNetConsoleCS.csproj",
+        "projectPath": "D:\\Code\\PricePredictNeuralNetwork\\NeuralNetConsoleCS.csproj",
         "packagesPath": "C:\\Users\\samda\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\NeuralNetConsoleCSCopy\\obj\\",
+        "outputPath": "D:\\Code\\PricePredictNeuralNetwork\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

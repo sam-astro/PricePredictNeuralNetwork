@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3YCOoD8G+dXZZREcmzCp4Gt7KpKaDGRGMTSTxFUWsCokyHY1UmLq5in6kYbBrd89EsYqcEJxDQTCr17Y6tgEYg==",
+  "dgSpecHash": "83tUIC4FZJJQVHuXPuP/RYMkU9koYhS2L0I73ih0lUrvkM0vgkVEz+Af/YWBuoprzXqVMH3UgGbAcpoRBjOxrw==",
   "success": true,
-  "projectFilePath": "D:\\Code\\NeuralNetConsoleCSCopy\\NeuralNetConsoleCS.csproj",
+  "projectFilePath": "D:\\Code\\PricePredictNeuralNetwork\\NeuralNetConsoleCS.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
