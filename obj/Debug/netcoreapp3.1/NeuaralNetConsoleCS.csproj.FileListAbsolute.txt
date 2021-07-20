@@ -1,0 +1,13 @@
+D:\NeuaralNetConsoleCS\bin\Debug\netcoreapp3.1\NeuaralNetConsoleCS.exe
+D:\NeuaralNetConsoleCS\bin\Debug\netcoreapp3.1\NeuaralNetConsoleCS.deps.json
+D:\NeuaralNetConsoleCS\bin\Debug\netcoreapp3.1\NeuaralNetConsoleCS.runtimeconfig.json
+D:\NeuaralNetConsoleCS\bin\Debug\netcoreapp3.1\NeuaralNetConsoleCS.runtimeconfig.dev.json
+D:\NeuaralNetConsoleCS\bin\Debug\netcoreapp3.1\NeuaralNetConsoleCS.dll
+D:\NeuaralNetConsoleCS\bin\Debug\netcoreapp3.1\NeuaralNetConsoleCS.pdb
+D:\NeuaralNetConsoleCS\obj\Debug\netcoreapp3.1\NeuaralNetConsoleCS.csproj.AssemblyReference.cache
+D:\NeuaralNetConsoleCS\obj\Debug\netcoreapp3.1\NeuaralNetConsoleCS.AssemblyInfoInputs.cache
+D:\NeuaralNetConsoleCS\obj\Debug\netcoreapp3.1\NeuaralNetConsoleCS.AssemblyInfo.cs
+D:\NeuaralNetConsoleCS\obj\Debug\netcoreapp3.1\NeuaralNetConsoleCS.csproj.CoreCompileInputs.cache
+D:\NeuaralNetConsoleCS\obj\Debug\netcoreapp3.1\NeuaralNetConsoleCS.dll
+D:\NeuaralNetConsoleCS\obj\Debug\netcoreapp3.1\NeuaralNetConsoleCS.pdb
+D:\NeuaralNetConsoleCS\obj\Debug\netcoreapp3.1\NeuaralNetConsoleCS.genruntimeconfig.cache
