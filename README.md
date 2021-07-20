@@ -1,5 +1,5 @@
 # PricePredictNeuralNetwork
-> This is a simple neural network built to predict a future price based off of history data.
+> This is a simple neural network built to predict a future price based on historical data.
 
 ## How to use:
 To run, simply open <code>/Executable/</code>, then run <code>NeuralNetConsoleCS.exe</code>. After that, no further input is required and you can just let it compute new generations to make the network better.
