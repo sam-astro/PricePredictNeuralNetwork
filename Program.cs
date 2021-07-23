@@ -6,6 +6,8 @@ namespace NeuralNetConsoleCSCopy
 	{
 		static void Main(string[] args)
 		{
+			Console.Title = "Train a Neural Network";
+
 			NetManagerConvo netmanager = new NetManagerConvo();
 
 			netmanager.NeuralManager();

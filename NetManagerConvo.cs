@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using System.Threading;
+using System.Net.Http;
 
 public class NetManagerConvo
 {
@@ -35,7 +36,7 @@ public class NetManagerConvo
 			nets.Sort();
 			amntLeft = populationSize;
 			CreateEntityBodies();
-			if (generationNumber % 20 == 0)
+			if (generationNumber % 50 == 0)
 			{
 				StreamWriter persistence = new StreamWriter(".\\dat\\weightpersistence.dat");
 				persistence.WriteLine(generationNumber);
