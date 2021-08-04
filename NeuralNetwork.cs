@@ -233,12 +233,12 @@ public class NeuralNetwork : IComparable<NeuralNetwork>
                     if (randomNumber <= 2f)
                     { //if 1
                       //flip sign of weight
-                        weight *= -1f;
+                        weight += (0.25f * weight);
                     }
                     else if (randomNumber <= 4f)
                     { //if 2
                       //pick random weight between -1 and 1
-                        weight = new Random().Next(-100, 100) / 100.0f;
+                        weight = new Random().Next(0, 100) / 100.0f;
                     }
                     else if (randomNumber <= 6f)
                     { //if 3
@@ -252,7 +252,7 @@ public class NeuralNetwork : IComparable<NeuralNetwork>
                         float factor = new Random().Next(-100, 100) / 100.0f;
                         weight *= factor;
                     }
-                    else if (randomNumber <= 50f)
+                    else if (randomNumber <= 75f)
                     { //if 5
                       //randomly increase or decrease weight by tiny amount
                         float factor = new Random().Next(-1000, 1000) / 100.0f / 1000;

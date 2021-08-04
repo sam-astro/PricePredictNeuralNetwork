@@ -22,6 +22,9 @@ public class NetManagerConvo
 
 	NeuralNetwork persistenceNetwork;
 
+	float lastBest;
+	float lastWorst;
+
 	public void NeuralManager()
 	{
 		StreamReader sr = File.OpenText(".\\dat\\weightpersistence.dat");
@@ -94,46 +97,46 @@ public class NetManagerConvo
 			}
 
 			Console.Write("Generation: " + generationNumber + "  |  entities: " + (generationNumber * populationSize));
-			if ((highestFitness / 100) < 90)
+			if ((highestFitness / 100) < lastBest)
 			{
 				Console.Write("  |  ");
 				Console.ForegroundColor = ConsoleColor.Red;
 				Console.Write("Best Fitness:: " + (highestFitness / 100) + "%");
 				Console.ResetColor();
 			}
-			else if ((highestFitness / 100) < 95)
+			else if ((highestFitness / 100) > lastBest)
 			{
 				Console.Write("  |  ");
-				Console.ForegroundColor = ConsoleColor.DarkYellow;
+				Console.ForegroundColor = ConsoleColor.Green;
 				Console.Write("Best Fitness:: " + (highestFitness / 100) + "%");
 				Console.ResetColor();
 			}
 			else
 			{
 				Console.Write("  |  ");
-				Console.ForegroundColor = ConsoleColor.Green;
+				Console.ForegroundColor = ConsoleColor.DarkGray;
 				Console.Write("Best Fitness:: " + (highestFitness / 100) + "%");
 				Console.ResetColor();
 			}
 
-			if ((lowestFitness / 100) < 85)
+			if ((lowestFitness / 100) < lastWorst)
 			{
 				Console.Write("  |  ");
 				Console.ForegroundColor = ConsoleColor.Red;
 				Console.Write("Worst Fitness:: " + (lowestFitness / 100) + "%\n");
 				Console.ResetColor();
 			}
-			else if ((lowestFitness / 100) < 90)
+			else if ((lowestFitness / 100) > lastWorst)
 			{
 				Console.Write("  |  ");
-				Console.ForegroundColor = ConsoleColor.DarkYellow;
+				Console.ForegroundColor = ConsoleColor.Green;
 				Console.Write("Worst Fitness:: " + (lowestFitness / 100) + "%\n");
 				Console.ResetColor();
 			}
 			else
 			{
 				Console.Write("  |  ");
-				Console.ForegroundColor = ConsoleColor.Green;
+				Console.ForegroundColor = ConsoleColor.DarkGray;
 				Console.Write("Worst Fitness:: " + (lowestFitness / 100) + "%\n");
 				Console.ResetColor();
 			}
@@ -159,6 +162,8 @@ public class NetManagerConvo
 			amntLeft = populationSize;
 			networksRunning = true;
 			CreateEntityBodies();
+			lastBest = (highestFitness / 100);
+			lastWorst = (lowestFitness / 100);
 
 			#region Check if nets are training
 			amntLeft = populationSize;
