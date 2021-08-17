@@ -50,3 +50,4 @@ D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.csp
 D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.dll
 D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.pdb
 D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.genruntimeconfig.cache
+D:\Code\PricePredictNeuralNetwork\obj\Debug\netcoreapp3.1\NeuralNetConsoleCS.GeneratedMSBuildEditorConfig.editorconfig

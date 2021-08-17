@@ -4,6 +4,9 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Net.Http;
+using System.Text;
+using System.Net;
+using System.Collections.Specialized;
 
 public class NetManagerConvo
 {
@@ -39,48 +42,6 @@ public class NetManagerConvo
 			nets.Sort();
 			amntLeft = populationSize;
 			CreateEntityBodies();
-			if (generationNumber % 50 == 0)
-			{
-				StreamWriter persistence = new StreamWriter(".\\dat\\weightpersistence.dat");
-				persistence.WriteLine(generationNumber);
-				for (int i = 0; i < nets[nets.Count - 1].weights.Length; i++)
-				{
-					for (int j = 0; j < nets[nets.Count - 1].weights[i].Length; j++)
-					{
-						for (int k = 0; k < nets[nets.Count - 1].weights[i][j].Length; k++)
-						{
-							Console.ForegroundColor = ConsoleColor.Blue;
-							Console.WriteLine("Saving:: " + i.ToString() + "=" + j.ToString() + "=" + k.ToString());
-							persistence.WriteLine(i.ToString() + "=" + j.ToString() + "=" + k.ToString() + "=" + nets[nets.Count - 1].weights[i][j][k]);
-							Console.ResetColor();
-						}
-					}
-				}
-				persistence.Close();
-
-
-				//if (collectedWeightsCopy == null)
-				//	GatherPersistence();
-				//StreamWriter persistence = new StreamWriter(".\\dat\\weightpersistence.dat");
-				//persistence.WriteLine(generationNumber);
-				//for (int layerCount = 1; layerCount < nets[nets.Count - 1].weights.Length;)
-				//{
-				//	for (int neuronCount = 0; neuronCount < nets[nets.Count - 1].weights[layerCount].Length;)
-				//	{
-				//		for (int synapseCount = 0; synapseCount < nets[nets.Count - 1].weights[layerCount][neuronCount].Length;)
-				//		{
-				//			Console.WriteLine(layerCount.ToString() + "=" + neuronCount.ToString() + "=" + synapseCount.ToString());
-				//			persistence.WriteLine(layerCount.ToString() + "=" + neuronCount.ToString() + "=" + synapseCount.ToString() + "=" + nets[nets.Count - 1].weights[layerCount][neuronCount][synapseCount]);
-
-				//			synapseCount++;
-				//		}
-				//		neuronCount++;
-				//	}
-				//	layerCount++;
-				//}
-				//persistence.Close();
-				//File.WriteAllLines(".\\dat\\weightpersistence.dat", );
-			}
 			//ThreadStart finalizeRef = new ThreadStart(Finalizer);
 			//Thread finalizeThread = new Thread(finalizeRef);
 			//finalizeThread.Start();
@@ -110,6 +71,25 @@ public class NetManagerConvo
 				Console.ForegroundColor = ConsoleColor.Green;
 				Console.Write("Best Fitness:: " + (highestFitness / 100) + "%");
 				Console.ResetColor();
+
+				StreamWriter persistence = new StreamWriter(".\\dat\\weightpersistence.dat");
+				persistence.WriteLine(generationNumber);
+				for (int i = 0; i < nets[nets.Count - 1].weights.Length; i++)
+				{
+					for (int j = 0; j < nets[nets.Count - 1].weights[i].Length; j++)
+					{
+						for (int k = 0; k < nets[nets.Count - 1].weights[i][j].Length; k++)
+						{
+							Console.ForegroundColor = ConsoleColor.Blue;
+							Console.WriteLine("Saving:: " + i.ToString() + "=" + j.ToString() + "=" + k.ToString());
+							persistence.WriteLine(i.ToString() + "=" + j.ToString() + "=" + k.ToString() + "=" + nets[nets.Count - 1].weights[i][j][k]);
+							Console.ResetColor();
+						}
+					}
+				}
+				persistence.Close();
+
+				Upload();
 			}
 			else
 			{
@@ -232,7 +212,7 @@ public class NetManagerConvo
 		{
 			NeuralNetwork net = new NeuralNetwork(layers, collectedWeights);
 			Console.ForegroundColor = ConsoleColor.Blue;
-			Console.WriteLine("Creating net:: " + i + " of " + (populationSize - 1));
+			Console.WriteLine("Creating net:: " + i + " of " + populationSize);
 			Console.ResetColor();
 			net.Mutate();
 			if (persistenceNetwork != null)
@@ -248,7 +228,7 @@ public class NetManagerConvo
 		Console.ForegroundColor = ConsoleColor.Blue;
 		Console.Write("BLUE ");
 		Console.ForegroundColor = ConsoleColor.Green;
-		Console.Write("text isn't getting printed to screen. (that is when it is saving or loading data). Also, I'm too lazy so when you are done training this, you need to either send me /dat/weightpersistence.dat OR send me the text within that file. No networking, yet :P\n");
+		Console.Write("text isn't getting printed to screen. (that is when it is saving or loading data). I have finally implemented networking! Now, as long as you have an internet connection, the weights data will automatically be sent to my server! Hooray!\n");
 		Console.ResetColor();
 	}
 
@@ -286,5 +266,17 @@ public class NetManagerConvo
 
 		//collectedWeights = persistenceNetwork.weights; //convert to 3D array
 		collectedWeightsCopy = persistenceNetwork.weights; //convert to 3D array
+	}
+
+	static void Upload()
+	{
+		System.Net.WebClient Client = new System.Net.WebClient();
+
+		Client.Headers.Add("enctype", "multipart/form-data");
+
+		byte[] result = Client.UploadFile("http://achillium.us.to/uploadweights.php", "POST",
+										  @".\dat\weightpersistence.dat");
+
+		string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
 	}
 }
