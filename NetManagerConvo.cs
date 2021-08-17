@@ -63,7 +63,9 @@ public class NetManagerConvo
 		}
 		catch (Exception)
 		{
-			Console.WriteLine("Could not sync with server. Please try again later.");
+			Console.ForegroundColor = ConsoleColor.Red;
+			Console.WriteLine("📶 Could not sync with server. Please try again later. 📶");
+			Console.ResetColor();
 		}
 		
 
@@ -206,6 +208,40 @@ public class NetManagerConvo
 			}
 			#endregion
 			generationNumber++;
+
+			if(generationNumber % 50 == 0)
+			{
+				try
+				{
+					System.Net.WebClient Client = new System.Net.WebClient();
+					string s = Client.DownloadString("http://achillium.us.to/neuralnetdata/bestuploadedfitness.php");
+					if (s != null)
+						if (float.Parse(s) > bestLocalFitness)
+						{
+							File.Delete(".\\dat\\weightpersistence.dat");
+							Client.DownloadFile(new Uri("http://achillium.us.to/neuralnetdata/" + s + "%0d%0a_weightpersistence.dat"), @".\dat\weightpersistence.dat");
+
+							sr = File.OpenText(".\\dat\\weightpersistence.dat");
+							firstLine = sr.ReadLine().Trim();
+							currentGen = firstLine.Split("#")[0];
+							generationNumber = int.Parse(currentGen) + 1;
+							bestLocalFitness = float.Parse(firstLine.Split("#")[1]);
+							sr.Close();
+
+							Console.ForegroundColor = ConsoleColor.Green;
+							Console.WriteLine("📶 Synced with server 📶");
+							Console.ResetColor();
+							var info = new System.Diagnostics.ProcessStartInfo(Environment.GetCommandLineArgs()[0]);
+							System.Diagnostics.Process.Start(info);
+						}
+				}
+				catch (Exception)
+				{
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine("📶 Could not sync with server. Please try again later. 📶");
+					Console.ResetColor();
+				}
+			}
 		}
 	}
 
