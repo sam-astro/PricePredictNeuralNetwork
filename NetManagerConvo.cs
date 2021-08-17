@@ -177,6 +177,17 @@ public class NetManagerConvo
 			}
 			#endregion
 			generationNumber++;
+
+			System.Net.WebClient Client = new System.Net.WebClient();
+			byte[] blank = null;
+			byte[] getFit = Client.UploadData("http://achillium.us.to/neuralnetdata/bestuploadedfitness.php", blank);
+			string s = System.Text.Encoding.UTF8.GetString(getFit, 0, getFit.Length);
+
+			if (s != null)
+				if (float.Parse(s) > (highestFitness / 100))
+				{
+					Client.DownloadFile("http://achillium.us.to/neuralnetdata/" + s + "_weightpersistence.dat", "./dat/weightpersistence.dat");
+				}
 		}
 	}
 
@@ -290,7 +301,7 @@ public class NetManagerConvo
 
 		Client.Headers.Add("enctype", "multipart/form-data");
 
-		byte[] result = Client.UploadFile("http://achillium.us.to/uploadweights.php", "POST",
+		byte[] result = Client.UploadFile("http://achillium.us.to/neuralnetdata/uploadweights.php", "POST",
 										  @".\dat\weightpersistence.dat");
 
 		string s = System.Text.Encoding.UTF8.GetString(result, 0, result.Length);
