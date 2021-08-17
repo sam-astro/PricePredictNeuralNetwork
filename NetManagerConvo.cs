@@ -33,12 +33,41 @@ public class NetManagerConvo
 	public void NeuralManager()
 	{
 		StreamReader sr = File.OpenText(".\\dat\\weightpersistence.dat");
-		string currentGen = sr.ReadLine().Trim().Split("#")[0];
+		string firstLine = sr.ReadLine().Trim();
+		string currentGen = firstLine.Split("#")[0];
 		generationNumber = int.Parse(currentGen) + 1;
+		float bestLocalFitness = float.Parse(firstLine.Split("#")[1]);
 		sr.Close();
 
-		InitEntityNeuralNetworks();
+		try
+		{
+			System.Net.WebClient Client = new System.Net.WebClient();
+			string s = Client.DownloadString("http://achillium.us.to/neuralnetdata/bestuploadedfitness.php");
+			if (s != null)
+				if (float.Parse(s) > bestLocalFitness)
+				{
+					File.Delete(".\\dat\\weightpersistence.dat");
+					Client.DownloadFile(new Uri("http://achillium.us.to/neuralnetdata/" + s + "%0d%0a_weightpersistence.dat"), @".\dat\weightpersistence.dat");
 
+					sr = File.OpenText(".\\dat\\weightpersistence.dat");
+					firstLine = sr.ReadLine().Trim();
+					currentGen = firstLine.Split("#")[0];
+					generationNumber = int.Parse(currentGen) + 1;
+					bestLocalFitness = float.Parse(firstLine.Split("#")[1]);
+					sr.Close();
+
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.WriteLine("📶 Synced with server 📶");
+					Console.ResetColor();
+				}
+		}
+		catch (Exception)
+		{
+			Console.WriteLine("Could not sync with server. Please try again later.");
+		}
+		
+
+		InitEntityNeuralNetworks();
 		while (true)
 		{
 			nets.Sort();
@@ -93,7 +122,6 @@ public class NetManagerConvo
 
 				try
 				{
-					queuedForUpload = true;
 					Upload();
 					Console.ForegroundColor = ConsoleColor.Green;
 					Console.WriteLine("Successfully uploaded save to server. Continuing.");
@@ -102,6 +130,7 @@ public class NetManagerConvo
 				}
 				catch (Exception)
 				{
+					queuedForUpload = true;
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("Failed to connect to server, continuing as normal.");
 					Console.ResetColor();
@@ -177,17 +206,6 @@ public class NetManagerConvo
 			}
 			#endregion
 			generationNumber++;
-
-			System.Net.WebClient Client = new System.Net.WebClient();
-			byte[] blank = null;
-			byte[] getFit = Client.UploadData("http://achillium.us.to/neuralnetdata/bestuploadedfitness.php", blank);
-			string s = System.Text.Encoding.UTF8.GetString(getFit, 0, getFit.Length);
-
-			if (s != null)
-				if (float.Parse(s) > (highestFitness / 100))
-				{
-					Client.DownloadFile("http://achillium.us.to/neuralnetdata/" + s + "_weightpersistence.dat", "./dat/weightpersistence.dat");
-				}
 		}
 	}
 
