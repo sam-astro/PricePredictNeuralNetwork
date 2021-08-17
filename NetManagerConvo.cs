@@ -28,6 +28,8 @@ public class NetManagerConvo
 	float lastBest = 100000000;
 	float lastWorst = 100000000;
 
+	bool queuedForUpload;
+
 	public void NeuralManager()
 	{
 		StreamReader sr = File.OpenText(".\\dat\\weightpersistence.dat");
@@ -65,7 +67,7 @@ public class NetManagerConvo
 				Console.Write("Best Fitness:: " + (highestFitness / 100) + "%");
 				Console.ResetColor();
 			}
-			else if ((highestFitness / 100) > lastBest)
+			else if ((highestFitness / 100) > lastBest || queuedForUpload == true)
 			{
 				Console.Write("  |  ");
 				Console.ForegroundColor = ConsoleColor.Green;
@@ -91,7 +93,12 @@ public class NetManagerConvo
 
 				try
 				{
+					queuedForUpload = true;
 					Upload();
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.WriteLine("Successfully uploaded save to server. Continuing.");
+					Console.ResetColor();
+					queuedForUpload = false;
 				}
 				catch (Exception)
 				{
