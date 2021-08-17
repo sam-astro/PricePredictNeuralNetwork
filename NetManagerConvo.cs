@@ -25,13 +25,13 @@ public class NetManagerConvo
 
 	NeuralNetwork persistenceNetwork;
 
-	float lastBest;
-	float lastWorst;
+	float lastBest = 100000000;
+	float lastWorst = 100000000;
 
 	public void NeuralManager()
 	{
 		StreamReader sr = File.OpenText(".\\dat\\weightpersistence.dat");
-		string currentGen = sr.ReadLine().Trim();
+		string currentGen = sr.ReadLine().Trim().Split("#")[0];
 		generationNumber = int.Parse(currentGen) + 1;
 		sr.Close();
 
@@ -73,7 +73,7 @@ public class NetManagerConvo
 				Console.ResetColor();
 
 				StreamWriter persistence = new StreamWriter(".\\dat\\weightpersistence.dat");
-				persistence.WriteLine(generationNumber);
+				persistence.WriteLine((generationNumber).ToString() + "#" + (highestFitness / 100).ToString());
 				for (int i = 0; i < nets[nets.Count - 1].weights.Length; i++)
 				{
 					for (int j = 0; j < nets[nets.Count - 1].weights[i].Length; j++)
@@ -89,7 +89,16 @@ public class NetManagerConvo
 				}
 				persistence.Close();
 
-				Upload();
+				try
+				{
+					Upload();
+				}
+				catch (Exception)
+				{
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine("Failed to connect to server, continuing as normal.");
+					Console.ResetColor();
+				}
 			}
 			else
 			{
