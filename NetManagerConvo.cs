@@ -248,13 +248,20 @@ public class NetManagerConvo
 	private void CreateEntityBodies()
 	{
 		entityList = new List<ConvoBot>();
-
-		for (int i = 0; i < populationSize; i++)
+		
+		Parallel.For(0, populationSize, i =>
 		{
 			ConvoBot convoBot = new ConvoBot();
 			convoBot.Init(nets[i]);
 			entityList.Add(convoBot);
-		}
+		});
+		
+		//for (int i = 0; i < populationSize; i++)
+		//{
+		//	ConvoBot convoBot = new ConvoBot();
+		//	convoBot.Init(nets[i]);
+		//	entityList.Add(convoBot);
+		//}
 	}
 
 	void Finalizer()
@@ -288,8 +295,8 @@ public class NetManagerConvo
 		}
 
 		nets = new List<NeuralNetwork>();
-
-		for (int i = 0; i < populationSize; i++)
+		
+		Parallel.For(0, populationSize, i =>
 		{
 			NeuralNetwork net = new NeuralNetwork(layers, collectedWeights);
 			Console.ForegroundColor = ConsoleColor.Blue;
@@ -299,7 +306,19 @@ public class NetManagerConvo
 			if (persistenceNetwork != null)
 				net.weights = persistenceNetwork.weights;
 			nets.Add(net);
-		}
+		});
+		
+		//for (int i = 0; i < populationSize; i++)
+		//{
+		//	NeuralNetwork net = new NeuralNetwork(layers, collectedWeights);
+		//	Console.ForegroundColor = ConsoleColor.Blue;
+		//	Console.WriteLine("Creating net:: " + i + " of " + populationSize);
+		//	Console.ResetColor();
+		//	net.Mutate();
+		//	if (persistenceNetwork != null)
+		//		net.weights = persistenceNetwork.weights;
+		//	nets.Add(net);
+		//}
 
 		startup = false;
 		Console.Clear();
