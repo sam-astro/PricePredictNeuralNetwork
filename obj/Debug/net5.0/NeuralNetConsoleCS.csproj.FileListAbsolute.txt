@@ -1,0 +1,16 @@
+D:\Code\PricePredictNeuralNetwork\bin\Debug\net5.0\NeuralNetConsoleCS.exe
+D:\Code\PricePredictNeuralNetwork\bin\Debug\net5.0\NeuralNetConsoleCS.deps.json
+D:\Code\PricePredictNeuralNetwork\bin\Debug\net5.0\NeuralNetConsoleCS.runtimeconfig.json
+D:\Code\PricePredictNeuralNetwork\bin\Debug\net5.0\NeuralNetConsoleCS.runtimeconfig.dev.json
+D:\Code\PricePredictNeuralNetwork\bin\Debug\net5.0\NeuralNetConsoleCS.dll
+D:\Code\PricePredictNeuralNetwork\bin\Debug\net5.0\ref\NeuralNetConsoleCS.dll
+D:\Code\PricePredictNeuralNetwork\bin\Debug\net5.0\NeuralNetConsoleCS.pdb
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.csproj.AssemblyReference.cache
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.AssemblyInfoInputs.cache
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.AssemblyInfo.cs
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.csproj.CoreCompileInputs.cache
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.dll
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\ref\NeuralNetConsoleCS.dll
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.pdb
+D:\Code\PricePredictNeuralNetwork\obj\Debug\net5.0\NeuralNetConsoleCS.genruntimeconfig.cache

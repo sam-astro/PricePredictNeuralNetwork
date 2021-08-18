@@ -14,7 +14,7 @@ public class NetManagerConvo
 	private bool networksRunning = false;
 	public int populationSize = 100;
 	private int generationNumber = 1;
-	public int[] layers = new int[] { 55, 20, 60, 20, 10 }; // Default No. of inputs and No. of outputs
+	public int[] layers = new int[] { 55, 60, 60, 60, 60, 60, 10 }; // No. of inputs and No. of outputs
 	private List<NeuralNetwork> nets;
 	public List<ConvoBot> entityList = null;
 	bool startup = true;
@@ -33,6 +33,35 @@ public class NetManagerConvo
 
 	public void NeuralManager()
 	{
+		Console.WriteLine("Before this starts, how powerful is your PC?");
+		Console.WriteLine("1. Minimum, please go easy :(");
+		Console.WriteLine("2. Fair, it can't do much");
+		Console.WriteLine("3. Average, it can browse the web and run some games");
+		Console.WriteLine("4. Modest, it's good for some things but still a little slow");
+		Console.WriteLine("5. Good, everything can run on it but only at medium settings");
+		Console.WriteLine("6. Great, everything runs on it at high settings");
+		Console.WriteLine("7. Excellent, everything runs on it at extreme settings");
+		Console.WriteLine("8. Monstrous, it is basically a supercomputer.\n");
+		Console.Write("Answer (1-8) >  ");
+
+		int settingsChoice = int.Parse(Console.ReadLine());
+		if (settingsChoice == 1)
+			populationSize = 20;
+		if (settingsChoice == 2)
+			populationSize = 40;
+		if (settingsChoice == 3)
+			populationSize = 80;
+		if (settingsChoice == 4)
+			populationSize = 200;
+		if (settingsChoice == 5)
+			populationSize = 300;
+		if (settingsChoice == 6)
+			populationSize = 400;
+		if (settingsChoice == 7)
+			populationSize = 1000;
+		if (settingsChoice == 7)
+			populationSize = 10000;
+
 		StreamReader sr = File.OpenText(".\\dat\\weightpersistence.dat");
 		string firstLine = sr.ReadLine().Trim();
 		string currentGen = firstLine.Split("#")[0];
@@ -99,7 +128,7 @@ public class NetManagerConvo
 				Console.Write("Best Fitness:: " + (highestFitness / 100) + "%");
 				Console.ResetColor();
 			}
-			else if ((highestFitness / 100) > lastBest || queuedForUpload == true)
+			else if ((highestFitness / 100) > lastBest || (queuedForUpload == true && generationNumber % 50 == 0))
 			{
 				Console.Write("  |  ");
 				Console.ForegroundColor = ConsoleColor.Green;
