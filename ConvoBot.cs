@@ -36,9 +36,9 @@ public class ConvoBot
 			}
 
 			inputs = new float[55];
-			for (int i = 0; i < prompt.Split(" ").Length-1; i++)
+			for (int i = 1; i < prompt.Split(" ").Length; i++)
 			{
-				inputs[i] = (int)Math.Round(float.Parse(prompt.Split(" ")[i+1]));
+				inputs[i] = (int)Math.Round(float.Parse(prompt.Split(" ")[i]));
 			}
 			inputs[prompt.Split(" ").Length] = (int)Math.Round(answer);
 			outputs = net.FeedForward(inputs);
