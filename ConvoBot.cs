@@ -48,9 +48,9 @@ public class ConvoBot
 			}
 
 
-			int score = 10000 - Math.Clamp((int)Math.Round(promptObject.StringSimilarity(answer)), 0, 10000);
-			float guessScore = (float)(100 - Math.Round(promptObject.StringSimilarity(answer) * 1000) / 100);
-			if (guessScore > 70)
+			int score = Math.Clamp((int)Math.Round((100-promptObject.StringSimilarity(answer))*100), 0, 10000);
+			float guessScore = (float)(Math.Round((100 - promptObject.StringSimilarity(answer)) * 100) / 100);
+			if (guessScore > 97)
 			{
 				Console.Write("Guessed::  " + answer + " : " + promptObject.correctAnswer + " : " + nextGuess + " : ");
 				if (guessScore < 94)

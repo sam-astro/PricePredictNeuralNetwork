@@ -52,6 +52,6 @@ public class Prompt
 
 	public float StringSimilarity(float s)
 	{
-		return Math.Abs(correctAnswer - s);
+		return (Math.Abs(correctAnswer - s)/correctAnswer)*100;
 	}
 }

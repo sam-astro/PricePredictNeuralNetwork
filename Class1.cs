@@ -17,7 +17,7 @@ namespace TechnetSamples
 
 			webClient.Dispose();
 
-			string URL = "http://achillium.us.to/neuralnetdata/uploadweights.php";
+			string URL = "http://achillium.us.to/pricepredictneuralnetdata/uploadweights.php";
 			string boundary = "----------------------------" + DateTime.Now.Ticks.ToString("x");
 			System.Net.WebRequest webRequest = System.Net.WebRequest.Create(URL);
 

@@ -102,6 +102,39 @@ public class NeuralNetwork : IComparable<NeuralNetwork>
         neurons = neuronsList.ToArray(); //convert list to array
     }
 
+    public void RandomizeWeights()
+	{
+        List<float[][]> weightsList = new List<float[][]>(); //weights list which will later be converted into a weights 3D array
+
+        //itterate over all neurons that have a weight connection
+        for (int i = 1; i < layers.Length; i++)
+        {
+            List<float[]> layerWeightsList = new List<float[]>(); //layer weight list for this current layer (will be converted to 2D array)
+
+            int neuronsInPreviousLayer = layers[i - 1];
+
+            //itterate over all neurons in this current layer
+            for (int j = 0; j < neurons[i].Length; j++)
+            {
+                float[] neuronWeights = new float[neuronsInPreviousLayer]; //neruons weights
+
+                //itterate over all neurons in the previous layer and set the weights randomly between 0.5f and -0.5
+                for (int k = 0; k < neuronsInPreviousLayer; k++)
+                {
+                    //give random weights to neuron weights
+                    //neuronWeights[k] = UnityEngine.Random.Range(-0.5f,0.5f);
+                    neuronWeights[k] = new Random().Next(-50, 50) / 100.0f;
+                }
+
+                layerWeightsList.Add(neuronWeights); //add neuron weights of this current layer to layer weights
+            }
+
+            weightsList.Add(layerWeightsList.ToArray()); //add this layers weights converted into 2D array into weights list
+        }
+
+        weights = weightsList.ToArray(); //convert to 3D array
+    }
+
     /// <summary>
     /// Create weights matrix.
     /// </summary>
