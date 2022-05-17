@@ -1,5 +1,5 @@
 # PricePredictNeuralNetwork
-> This is a simple neural network built to predict a future price based on historical data. My PC isn't very powerful, and even though I run this network most of the time, progress has basically stopped. If you have free CPU, then I would be super grateful if you could help contribute by letting it train on your system.
+> If you want the newest neural networks that I am working on now, then go to the new repository here: [https://github.com/sam-astro/NN-2](https://github.com/sam-astro/NN-2)
 
 ## How to use:
 To run, simply open <code>/Executable/</code>, then run <code>NeuralNetConsoleCS.exe</code>. After that, no further input is required and you can just let it compute new generations to make the network better.
